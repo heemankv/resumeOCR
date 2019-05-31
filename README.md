@@ -17,3 +17,7 @@
       - `http://localhost:3000/` - `{"title":"Express"}`
       - `http://localhost:3000/users` - `respond with a resource`
 1. `git add . && git commit`
+
+1. add `engines` section in `package.json`
+   1. Use the current active LTS version of node
+   1. Use moderately new version of `yarn`
