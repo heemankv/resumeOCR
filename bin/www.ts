@@ -7,7 +7,7 @@ import app from '../src/app';
 import debugGen from 'debug';
 import http from 'http';
 
-const debug = debugGen('example-express-backend-api:server');
+const debug = debugGen('backend-api:server');
 
 /**
  * Get port from environment and store in Express.
