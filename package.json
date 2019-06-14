@@ -2,6 +2,10 @@
   "name": "example-express-backend-api",
   "version": "1.0.0-alpha",
   "private": true,
+  "engines": {
+    "node": "^10.16.0",
+    "yarn": "^1.13.0"
+  },
   "scripts": {
     "build": "rm -rf dist && yarn tsc",
     "start": "node ./dist/bin/www",
@@ -9,10 +13,6 @@
     "start:watch": "nodemon --exec \"yarn start:ts\" --ext \"ts json\"",
     "test": "jest --coverage",
     "test:watch": "jest --watch"
-  },
-  "engines": {
-    "node": "^10.16.0",
-    "yarn": "^1.13.0"
   },
   "dependencies": {
     "debug": "~2.6.9",
