@@ -1,23 +1,42 @@
-# Express Backend API Example
+<h1 align="center">Welcome to example-express-backend-api 👋</h1>
 
-## Create from Scratch:
+> This is a Github Repo Template to createNode.js/Express.js based Backend REST APIs
 
-1. `npx express-generator --no-view --git <repo-name>`
-1. `git init`
-1. `git add . && git commit`
+## Prerequisites
 
-1. `touch README.md`
-1. `rm -rf public` - this is an API only example
-   1. In `app.js` remove static middleware line: `app.use(express.static(path.join(__dirname, 'public')));`
-   2. In `routes/index.js` change `res.render('index', { title: 'Express' });` to `res.send({ title: 'Express' });`.
-1. Verify if your express app is still working:
-   1. `yarn install`
-   1. `yarn start`
-   1. In browser open urls:
-      - `http://localhost:3000/` - `{"title":"Express"}`
-      - `http://localhost:3000/users` - `respond with a resource`
-1. `git add . && git commit`
+- node ^10.16.0
+- yarn ^1.13.0
 
-1. add `engines` section in `package.json`
-   1. Use the current active LTS version of node
-   1. Use moderately new version of `yarn`
+## Install
+
+```sh
+yarn install
+```
+
+## Usage
+
+```sh
+# for prod deployment
+yarn build
+yarn start
+
+# OR #
+
+# for local development
+yarn start:ts
+
+# OR #
+
+# for local development with file watch (auto-restart)
+yarn start:watch
+```
+
+## Run tests
+
+```sh
+yarn test
+
+# OR #
+
+yarn test:watch
+```
