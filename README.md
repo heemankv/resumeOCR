@@ -12,7 +12,7 @@
   - [x] Add local typescript run script with file watch ([nodemon](https://nodemon.io/)): `yarn start:watch`
 - [x] Add [Jest](https://jestjs.io/) Testing framework: `yarn test` and `yarn test:watch`
 - [ ] Add Auto code formatting with [Prettier](https://prettier.io/)
-- [ ] Add [dotenv](https://github.com/motdotla/dotenv) to easily configure app environment variables for local development
+- [x] Add [dotenv](https://github.com/motdotla/dotenv) to easily configure app environment variables for local development
 - [ ] Add VS Code debug config ([Reference](https://code.visualstudio.com/docs/typescript/typescript-debugging))
 - [ ] Add API Authentication with [Passport](http://www.passportjs.org/)
 - [ ] Add Backing Database
