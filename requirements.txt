@@ -2,3 +2,4 @@ nltk
 spacy==2.3.5
 pyresparser
 flask-restful
+gunicorn==19.7.1
