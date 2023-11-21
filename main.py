@@ -1,5 +1,3 @@
-from pyresparser import ResumeParser
-from flask import Flask, jsonify, request
 
 import nltk
 import ssl
@@ -16,6 +14,9 @@ import spacy
 spacy.cli.download("en_core_web_lg")
 
  
+from pyresparser import ResumeParser
+from flask import Flask, jsonify, request
+
 
 
 def extract_text(file):
