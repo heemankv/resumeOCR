@@ -1,5 +1,4 @@
-Flask-RESTful==0.3.10
-gunicorn==21.2.0
-nltk==3.8.1
-pyresparser==1.0.6
-scapy==2.5.0
+nltk
+spacy==2.3.5
+pyresparser
+flask-restful
