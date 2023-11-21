@@ -72,6 +72,3 @@ virtualenv==20.24.7
 wasabi==0.10.1
 Werkzeug==3.0.1
 zipp==3.17.0
-pyresparser
-flask-restful
-Gunicorn
