@@ -11,7 +11,7 @@ except AttributeError:
 else:
     ssl._create_default_https_context = _create_unverified_https_context
 
-nltk.download()
+nltk.download('stopwords')
 import spacy
 spacy.cli.download("en_core_web_lg")
 
