@@ -11,13 +11,11 @@ else:
 
 nltk.download('stopwords')
 import spacy
-spacy.cli.download("en_core_web_lg")
-spacy.load('en_core_web_lg')
+spacy.cli.download("en_core_web_sm")
+
  
 from pyresparser import ResumeParser
 from flask import Flask, jsonify, request
-
-
 
 def extract_text(file):
   data = ResumeParser(file).get_extracted_data()
