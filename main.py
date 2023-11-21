@@ -1,10 +1,17 @@
 from pyresparser import ResumeParser
 from flask import Flask, jsonify, request
 
-
 import nltk
-nltk.download('stopwords')
+import ssl
 
+try:
+    _create_unverified_https_context = ssl._create_unverified_context
+except AttributeError:
+    pass
+else:
+    ssl._create_default_https_context = _create_unverified_https_context
+
+nltk.download()
 import spacy
 spacy.cli.download("en_core_web_lg")
 
