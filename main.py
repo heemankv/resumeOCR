@@ -12,7 +12,7 @@ else:
 nltk.download('stopwords')
 import spacy
 spacy.cli.download("en_core_web_lg")
-
+spacy.load('en_core_web_lg')
  
 from pyresparser import ResumeParser
 from flask import Flask, jsonify, request
@@ -28,9 +28,6 @@ def extract_text_multiple(files):
   for file in files:
     data.append(ResumeParser(file).get_extracted_data())
   return data
-
-
-
 
 app = Flask(__name__)
 
