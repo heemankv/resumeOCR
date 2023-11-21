@@ -1,11 +1,8 @@
 from pyresparser import ResumeParser
 
-
 def extract_text(file):
   data = ResumeParser('/content/Heemank_Verma.pdf').get_extracted_data()
   return data
-
-
 # multiple files are being given as input to the function extract_text and the output is stored in a list
 def extract_text_multiple(files):
   data = []
@@ -14,6 +11,7 @@ def extract_text_multiple(files):
   return data
 
 from flask import Flask, jsonify, request 
+
 
 app = Flask(__name__) 
 
