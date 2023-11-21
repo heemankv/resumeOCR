@@ -1,7 +1,18 @@
 from pyresparser import ResumeParser
+from flask import Flask, jsonify, request
+
+
+import nltk
+nltk.download('stopwords')
+
+import spacy
+spacy.cli.download("en_core_web_lg")
+
+ 
+
 
 def extract_text(file):
-  data = ResumeParser('/content/Heemank_Verma.pdf').get_extracted_data()
+  data = ResumeParser(file).get_extracted_data()
   return data
 # multiple files are being given as input to the function extract_text and the output is stored in a list
 def extract_text_multiple(files):
@@ -10,12 +21,10 @@ def extract_text_multiple(files):
     data.append(ResumeParser(file).get_extracted_data())
   return data
 
-from flask import Flask, jsonify, request 
-import spacy
-spacy.cli.download("en_core_web_lg")
 
 
-app = Flask(__name__) 
+
+app = Flask(__name__)
 
 @app.route('/', methods = ['GET', 'POST']) 
 def home(): 
@@ -33,7 +42,6 @@ def resumeOCR():
 
 # driver function 
 if __name__ == '__main__': 
-
 	app.run(debug = True) 
 
 
