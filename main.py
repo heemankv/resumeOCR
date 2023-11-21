@@ -12,8 +12,7 @@ def extract_text_multiple(files):
 
 from flask import Flask, jsonify, request 
 import spacy
-spacy.load ("en_core_web_lg")
-spacy.load ("en_core_web_sm")
+spacy.cli.download("en_core_web_lg")
 
 
 app = Flask(__name__) 
