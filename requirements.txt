@@ -1,5 +1,5 @@
-nltk = "*"
-spacy = "==2.3.5"
-pyresparser = "*"
-flask-restful = "*"
-Gunicorn = "*"
+nltk
+spacy==2.3.5
+pyresparser
+flask-restful
+Gunicorn
