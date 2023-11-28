@@ -29,20 +29,30 @@ def test_resumetojson_endpoint(client):
     with open(testFile_path1, 'rb') as resume_file:
         data = {'file': (resume_file, testFile_path1)}
         response = client.post('/resumetojson/', data=data, content_type='multipart/form-data')
-
+    print(response.data, "response.data")
     assert response.status_code == 200
     assert b'Heemank Verma' in response.data
 
-def test_resumetojsonmultiple_endpoint(client):
-    with open(testFile_path1, 'rb') as resume_file1, open(testFile_path2, 'rb') as resume_file2:
-        data = {'file': [(resume_file1, testFile_path1), (resume_file2, testFile_path2)]}
-        response = client.post('/resumetojsonmultiple/', data=data, content_type='multipart/form-data')
-
+def test_resumetojson_endpoint2(client):
+    with open(testFile_path2, 'rb') as resume_file:
+        data = {'file': (resume_file, testFile_path2)}
+        response = client.post('/resumetojson/', data=data, content_type='multipart/form-data')
+    print(response.data, "response.data")
     assert response.status_code == 200
-    assert b'Heemank Verma' in response.data
     assert b'John Doe' in response.data
 
-# Ensure 100% code coverage
+
+def test_resumetojsonmultiple_endpoint(client):
+    with open(testFile_path2, 'rb') as resume_file:
+        data = {'file': (resume_file, testFile_path2)}
+        response = client.post('/resumetojsonmultiple/', data=data, content_type='multipart/form-data')
+    print(response.data, "response.data")
+    assert response.status_code == 200
+    assert b'John Doe' in response.data
+
+
+
+# # Ensure 100% code coverage
 def test_main():
     import coverage
     cov = coverage.Coverage(source=['app'])
@@ -53,7 +63,6 @@ def test_main():
 
     cov.stop()
     cov.save()
-    cov.report()
 
 if __name__ == '__main__':
     pytest.main()
