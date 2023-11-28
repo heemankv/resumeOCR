@@ -19,6 +19,8 @@ spacy.cli.download("en_core_web_sm")
 from pyresparser import ResumeParser
 from flask import Flask, jsonify, request
 
+testFile_path = "example-resume/Heemank_Verma.pdf"
+
 def extract_text(file):
   data = ResumeParser(file).get_extracted_data()
   return data
@@ -43,27 +45,6 @@ except Exception as e:
     app.logger.error("Exception occured: {}".format(e))
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @app.route('/', methods = ['GET', 'POST']) 
 def home(): 
 	if(request.method == 'GET'): 
@@ -73,7 +54,7 @@ def home():
 
 @app.get("/resumeOCR/")
 def resumeOCR():
-    x = extract_text_multiple(["Heemank_Verma.pdf", "Heemank_Verma.pdf"])
+    x = extract_text_multiple([testFile_path, testFile_path])
     print(x)
     return { "data": x}
 
