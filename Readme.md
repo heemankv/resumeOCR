@@ -21,7 +21,7 @@ to run the app
 pipenv run gunicorn app:app
 
 to test the app 
-pipenv run pytest test_app.py 
+pipenv run pytest test_app.py  --cov=app
 
 
 

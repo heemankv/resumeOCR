@@ -54,7 +54,7 @@ def home():
 
 @app.get("/resumeOCR/")
 def resumeOCR():
-    x = extract_text_multiple([testFile_path, testFile_path])
+    x = extract_text(testFile_path)
     print(x)
     return { "data": x}
 
@@ -78,6 +78,7 @@ def resumetojson():
         return {"text": "Error in saving file"}
     
     extracted_text = extract_text(path)
+    os.remove(path)
     return {"text": extracted_text}
 
 
@@ -100,6 +101,9 @@ def resumetojsonmultiple():
       return {"text": "Error in saving file"}
 
   extracted_text = extract_text_multiple(files_paths)
+  # remove all the files from the upload folder
+  for file_path in files_paths:
+    os.remove(file_path)
   return {"text": extracted_text}
 
      
