@@ -4,8 +4,6 @@ import ssl
 import os
 import traceback
 
-from ocr_classifier import predict_text
-
 try:
     _create_unverified_https_context = ssl._create_unverified_context
 except AttributeError:
@@ -33,10 +31,10 @@ def extract_text_multiple(files):
     data.append(ResumeParser(file).get_extracted_data())
   return data
 
+from ocr_classifier import predict_text 
 
 
 app = Flask(__name__)
-
 try:
     path = os.path.dirname(os.path.abspath(__file__))
     upload_folder = os.path.join(path, "tmp")
@@ -50,7 +48,6 @@ except Exception as e:
 @app.route('/', methods = ['GET', 'POST']) 
 def home(): 
 	if(request.method == 'GET'): 
-
 		data = "hello world"
 		return jsonify({'data': data}) 
 
@@ -59,12 +56,8 @@ def resumeOCR():
     x = extract_text(testFile_path)
     y = predict_text(x)
     print(y)
-    return { "data": y}
+    return { "category": y}
 
-
-
-# A simple function that takes single pdf files as form input, runs the extract_text function on it and returns the output as a json object 
-# curl -X POST -F 'file=@<path_to_file>' http://localhost:8000/resumetojson/
 @app.post("/resumetojson/")
 def resumetojson():
     path = ""
@@ -82,8 +75,9 @@ def resumetojson():
     
     extracted_text = extract_text(path)
     os.remove(path)
-    return {"text": extracted_text}
-
+    y = predict_text(extracted_text)
+    print(y)
+    return { "category": y}
 
 # A simple function that takes multiple pdf files as form input, runs the extract_text_multiple function on them and returns the output as a list 
 # the function must support multiple files as input
@@ -107,9 +101,13 @@ def resumetojsonmultiple():
   # remove all the files from the upload folder
   for file_path in files_paths:
     os.remove(file_path)
-  return {"text": extracted_text}
 
+  prediction = []
+  for text in extracted_text:
+    y = predict_text(text)
+    prediction.append(y)
+  return {"text": prediction}
      
 # driver function 
 if __name__ == '__main__': 
-	app.run(debug = True) 
+	app.run(debug = False) 

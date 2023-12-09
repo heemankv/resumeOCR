@@ -1,4 +1,6 @@
 nltk
+google-cloud-aiplatform==1.37.0
+vertexai==0.0.1
 spacy==2.3.5
 pyresparser
 flask-restful
@@ -9,4 +11,3 @@ iniconfig==2.0.0
 pytest==7.4.3
 coverage==7.2.6
 pytest-cov==2.12.1
-vertexai==0.0.1

@@ -1,14 +1,11 @@
+from google.oauth2 import service_account
 import vertexai
 from vertexai.language_models import TextGenerationModel
 
-# import json 
-# with open('Test.json' , 'r') as file :
-#     jsonData = json.load(file)
-# print(jsonData['data']['skills'] )
-
 def predict_text(text_to_search):
 # text_to_search = "can you help me with the commands?"
-    vertexai.init(project="sdos-project-404807", location="us-central1")
+    vertexai.init(project="sdos-project-404807", location="us-central1",
+      credentials=service_account.Credentials.from_service_account_file("./application_default_credentials.json"))
     parameters = {
     "candidate_count": 1,
     "max_output_tokens": 1024,
@@ -171,4 +168,3 @@ output:
     )
     return response.text
 
-# print(predict_text(jsonData['data']['skills']))
