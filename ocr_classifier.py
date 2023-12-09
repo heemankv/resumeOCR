@@ -7,7 +7,6 @@ def predict_text(text_to_search):
     vertexai.init(project="sdos-project-404807", location="us-central1",
       credentials=service_account.Credentials.from_service_account_file("./application_default_credentials.json"))
     parameters = {
-    "candidate_count": 1,
     "max_output_tokens": 1024,
     "temperature": 0.2,
     "top_p": 0.8,
