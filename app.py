@@ -77,7 +77,13 @@ def resumetojson():
     os.remove(path)
     y = predict_text(extracted_text)
     print(y)
-    return { "category": y}
+
+    return { "category": y, "name" : extracted_text["name"], "email": extracted_text["email"], 
+            "college": "IIITD",
+            "image": "https://images.unsplash.com/photo-1619194617062-5a61b9c6a049?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "telegramId": "836114955",
+    }
+
 
 # A simple function that takes multiple pdf files as form input, runs the extract_text_multiple function on them and returns the output as a list 
 # the function must support multiple files as input
