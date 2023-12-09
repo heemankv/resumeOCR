@@ -3,7 +3,7 @@ import nltk
 import ssl
 import os
 import traceback
-
+from flask_cors import CORS
 try:
     _create_unverified_https_context = ssl._create_unverified_context
 except AttributeError:
@@ -33,6 +33,7 @@ def extract_text_multiple(files):
 from ocr_classifier import predict_text 
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 
 try:
     path = os.path.dirname(os.path.abspath(__file__))
