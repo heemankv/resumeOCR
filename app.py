@@ -14,7 +14,6 @@ else:
 nltk.download('stopwords')
 import spacy
 spacy.cli.download("en_core_web_sm")
-
  
 from pyresparser import ResumeParser
 from flask import Flask, jsonify, request
@@ -33,8 +32,8 @@ def extract_text_multiple(files):
 
 from ocr_classifier import predict_text 
 
-
 app = Flask(__name__)
+
 try:
     path = os.path.dirname(os.path.abspath(__file__))
     upload_folder = os.path.join(path, "tmp")
@@ -110,4 +109,4 @@ def resumetojsonmultiple():
      
 # driver function 
 if __name__ == '__main__': 
-	app.run(debug = False) 
+	app.run(debug = True) 
