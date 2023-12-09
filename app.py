@@ -4,6 +4,8 @@ import ssl
 import os
 import traceback
 
+from ocr_classifier import predict_text
+
 try:
     _create_unverified_https_context = ssl._create_unverified_context
 except AttributeError:
@@ -55,8 +57,9 @@ def home():
 @app.get("/resumeOCR/")
 def resumeOCR():
     x = extract_text(testFile_path)
-    print(x)
-    return { "data": x}
+    y = predict_text(x)
+    print(y)
+    return { "data": y}
 
 
 
